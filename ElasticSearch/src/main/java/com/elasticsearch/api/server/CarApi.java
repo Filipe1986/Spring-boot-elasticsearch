@@ -1,5 +1,6 @@
 package com.elasticsearch.api.server;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.slf4j.Logger;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.elasticsearch.entity.Car;
@@ -71,6 +73,32 @@ public class CarApi {
 		Car carResult = carElasticRepository.save(car);
 		return "Updated car: " + carResult.toString();
 	}
+	
+	@GetMapping(value = "/cars" , consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Car> getCarByBrandAndColor(@RequestBody Car car ){
+		List<Car> cars = carElasticRepository.findByBrandAndColor(car.getBrand(), car.getColor());
+		
+		return cars;
+	}
+	
+	@GetMapping(value = "/cars/{brand}/{color}" , produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Car> getPathCarByBrandAndColor(
+			@PathVariable("brand") String brand,
+			@PathVariable("color") String color){
+		List<Car> cars = carElasticRepository.findByBrandAndColor(brand, color);
+		
+		return cars;
+	}
+	
+	@GetMapping(value = "/cars" , produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Car> getParametersCarByBrandAndColor(
+			@RequestParam("brand") String brand,
+			@RequestParam("color") String color){
+		List<Car> cars = carElasticRepository.findByBrandAndColor(brand, color);
+		
+		return cars;
+	}
+	
 	
 	
 }

@@ -1,0 +1,553 @@
+{
+	"info": {
+		"_postman_id": "8994a43c-0b82-4db2-838f-1953ecc54378",
+		"name": "elasticSearch",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ElasticSearch",
+			"item": [
+				{
+					"name": "count",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9200/elasticsearch/_count",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9200",
+							"path": [
+								"elasticsearch",
+								"_count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get car by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": null,\n    \"brand\": \"Mitsubishi\",\n    \"color\": \"White\",\n    \"type\": \"Sedan\",\n    \"price\": 5363,\n    \"available\": true,\n    \"firstReleaseDate\": \"2012-08-31\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9200/elasticsearch/_doc/EB9V-ncBs6Tb3-IwsG63",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9200",
+							"path": [
+								"elasticsearch",
+								"_doc",
+								"EB9V-ncBs6Tb3-IwsG63"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"query\" :{\n        \"bool\" :{\n            \"must\" :[\n                {\n                    \"match\" :{\n                        \"brand\": \"Mitsubishi\"\n                    }\n                },\n                {\n                    \"match\" :{\n                        \"color\": \"Red\"\n                    }\n                }\n            ]\n        }\n    },\n    \"size\" : 3,\n    \"from\" : 0\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9200/elasticsearch/_doc/_search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9200",
+							"path": [
+								"elasticsearch",
+								"_doc",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": null,\n    \"brand\": \"Mitsubishi\",\n    \"color\": \"White\",\n    \"type\": \"Sedan\",\n    \"price\": 5363,\n    \"available\": true,\n    \"firstReleaseDate\": \"2012-08-31\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9200/elasticsearch/_doc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9200",
+							"path": [
+								"elasticsearch",
+								"_doc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Car by id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": null,\n    \"brand\": \"Mitsubishi\",\n    \"color\": \"Yellow\",\n    \"type\": \"Sedan\",\n    \"price\": 5363,\n    \"available\": true,\n    \"firstReleaseDate\": \"2012-08-31\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9200/elasticsearch/_doc/EB9V-ncBs6Tb3-IwsG63",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9200",
+							"path": [
+								"elasticsearch",
+								"_doc",
+								"EB9V-ncBs6Tb3-IwsG63"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete car by id Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": null,\n    \"brand\": \"Mitsubishi\",\n    \"color\": \"White\",\n    \"type\": \"Sedan\",\n    \"price\": 5363,\n    \"available\": true,\n    \"firstReleaseDate\": \"2012-08-31\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9200/elasticsearch/_doc/th9S-ncBs6Tb3-IwOm3t",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9200",
+							"path": [
+								"elasticsearch",
+								"_doc",
+								"th9S-ncBs6Tb3-IwOm3t"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Car api",
+			"item": [
+				{
+					"name": "Count Cars",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/car/v1/count",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"car",
+								"v1",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/car/v1/wiJ5-ncBs6Tb3-IwGTBa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"car",
+								"v1",
+								"wiJ5-ncBs6Tb3-IwGTBa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"brand\": \"Honda\",\n    \"color\": \"White\",\n    \"type\": \"MPV\",\n    \"price\": 11159,\n    \"available\": true,\n    \"firstReleaseDate\": \"2012-07-23\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/car/v1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"car",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"brand\": \"Honda\",\n    \"color\": \"Black\",\n    \"type\": \"MPV\",\n    \"price\": 11159,\n    \"available\": true,\n    \"firstReleaseDate\": \"2012-07-23\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/car/v1/3iKB-ncBs6Tb3-Iwns2v",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"car",
+								"v1",
+								"3iKB-ncBs6Tb3-Iwns2v"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter cars by body variables",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"brand\": \"Honda\",\n    \"color\": \"White\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/car/v1/cars",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"car",
+								"v1",
+								"cars"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter cars by path variables",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/car/v1/cars/Honda/Black",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"car",
+								"v1",
+								"cars",
+								"Honda",
+								"Black"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter cars by requestParam variables",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/car/v1/cars?brand=Honda&color=Black",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"car",
+								"v1",
+								"cars"
+							],
+							"query": [
+								{
+									"key": "brand",
+									"value": "Honda"
+								},
+								{
+									"key": "color",
+									"value": "Black"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Basic spring",
+			"item": [
+				{
+					"name": "Welcome",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/welcome",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"welcome"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "time",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/time",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"time"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "random car",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/car/v1/random",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"car",
+								"v1",
+								"random"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "echo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"brand\": \"Honda\",\n    \"color\": \"White\",\n    \"type\": \"MPV\",\n    \"price\": 11159,\n    \"available\": true,\n    \"firstReleaseDate\": \"2012-07-23\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/car/v1/echo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"car",
+								"v1",
+								"echo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "http://localhost:8080/demo/add?name=abc&email=abc@abc",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/demo/add?name=abc&email=abc@abc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"demo",
+						"add"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "abc"
+						},
+						{
+							"key": "email",
+							"value": "abc@abc"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

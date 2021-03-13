@@ -1,9 +1,10 @@
 package com.elasticsearch.repository;
 
-import java.awt.print.Pageable;
 import java.time.LocalDate;
 import java.util.List;
 
+
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 import org.springframework.stereotype.Repository;

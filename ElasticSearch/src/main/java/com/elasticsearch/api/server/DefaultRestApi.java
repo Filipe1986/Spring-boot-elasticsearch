@@ -31,7 +31,7 @@ public class DefaultRestApi {
 	}
 	
 	@GetMapping("/header")
-	public String headerByAnnotation(@RequestHeader(name="User-agent") String userAgent,  @RequestHeader(name="test") String test ){
+	public String headerByAnnotation(@RequestHeader(name="User-agent", required = false) String userAgent,  @RequestHeader(name="test", required = false) String test  ){
 		return new StringBuilder("User-agent: ").append(userAgent).append("\nTest: ").append(test).toString();
 	}
 

@@ -1,11 +1,13 @@
 package com.elasticsearch.api.server;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -97,6 +99,15 @@ public class CarApi {
 		List<Car> cars = carElasticRepository.findByBrandAndColor(brand, color);
 		
 		return cars;
+	}
+	
+	@GetMapping(value = "/cars/date" , produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Car> getCarsReleasedAfter(
+			@RequestParam(name = "firstReleaseDate") 
+			@DateTimeFormat(pattern = "yyyy-MM-dd")
+			LocalDate firstReleaseDate){
+		return carElasticRepository.findByFirstReleaseDateAfter(firstReleaseDate);
+		
 	}
 	
 	
